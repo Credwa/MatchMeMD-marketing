@@ -16,7 +16,9 @@
     "esbenp.prettier-vscode",
     "eamodio.gitlens",
     "christian-kohler.path-intellisense",
-    "wix.vscode-import-cost"
+    "wix.vscode-import-cost",
+    "jpoissonnier.vscode-styled-components",
+    "ms-azuretools.vscode-docker"
   ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
