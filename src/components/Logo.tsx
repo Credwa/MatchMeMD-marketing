@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 interface Props {
   width: number;
@@ -18,10 +18,8 @@ const Logo: React.FC<Props> = ({ width, height }) => {
   return (
     <img
       src={data.logo.publicURL}
-      alt={data.logo.relativePath}
-      width={width}
-      height={height}
-      style={{ paddingTop: '10px' }}
+      alt="MatchMeMD Logo"
+      style={{ paddingTop: '.625rem', width: '35vw', maxWidth: '10rem' }}
     />
   );
 };

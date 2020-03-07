@@ -6,6 +6,7 @@
   "author": "Craig Edwards <edwards.r.craig@gmail.com>",
   "dependencies": {
     "@ant-design/icons": "^4.0.2",
+    "@types/react-responsive": "^8.0.2",
     "@types/styled-components": "^5.0.1",
     "antd": "^4.0.1",
     "babel-plugin-styled-components": "^1.10.7",

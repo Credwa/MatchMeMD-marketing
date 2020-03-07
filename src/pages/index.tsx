@@ -1,12 +1,16 @@
-import React from 'react';
-import MDButton from '@/components/ui/MDButton';
+import HomeCTASection from '@/containers/home/CTASection';
+import HomeProductsSection from '@/containers/home/ProductsSection';
+import HomeVideoSection from '@/containers/home/VideoSection';
 import Layout from '@/layouts/Layout';
+import React from 'react';
 import SEO from '@/components/SEO';
 
 const IndexPage: React.FC = () => (
   <Layout>
     <SEO title="Home" meta={[]} />
-    <MDButton type="primary">Hello</MDButton>
+    <HomeCTASection />
+    <HomeVideoSection />
+    <HomeProductsSection />
   </Layout>
 );
 

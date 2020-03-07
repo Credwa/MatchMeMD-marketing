@@ -1,46 +1,62 @@
+import Logo from '@/components/Logo';
+import MDButton from '@/components/ui/MDButton';
+import NavigationItem from '@/components/navigation/NavigationItem';
 import React from 'react';
 import styled from 'styled-components';
-
-import MDButton from '@/components/ui/MDButton';
+import { COLORS, VALUES } from '@/themes/variables';
 import { MenuOutlined } from '@ant-design/icons';
-import Logo from '@/components/Logo';
-import NavigationItem from '@/components/navigation/NavigationItem';
-import { VALUES, COLORS } from '@/themes/variables';
+import { useMediaQuery } from 'react-responsive';
 
 interface Props {}
 
-const Header = styled.header`
+const Nav = styled.nav`
   min-height: ${VALUES.TOOLBAR_HEIGHT};
   background-color: ${COLORS.MMD_BACKGROUND};
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: ${VALUES.PAGE_PADDING};
+  max-width: ${VALUES.PAGE_MAX_WIDTH}px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const Toolbar: React.FC<Props> = () => {
-  return (
-    <Header>
-      <NavigationItem link="/">
-        <Logo width={120} />
-      </NavigationItem>
+  const isReallySmallScreen = useMediaQuery({ maxWidth: 325 });
 
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+  const getStartedButton = isReallySmallScreen ? null : (
+    <NavigationItem link="/">
+      <MDButton
+        type="primary"
+        ghost
+        size="middle"
+        style={{ color: `${COLORS.MMD_PRIMARY_8}`, borderColor: `${COLORS.MMD_PRIMARY_8}` }}
+      >
+        Get started
+      </MDButton>
+    </NavigationItem>
+  );
+
+  return (
+    <div style={{ width: '100vw', margin: 'auto' }}>
+      <Nav>
         <NavigationItem link="/">
-          <MDButton type="primary" ghost size="middle">
-            Get started
-          </MDButton>
+          <Logo width={120} />
         </NavigationItem>
-        <NavigationItem link="/" style={{ marginLeft: '1rem' }}>
-          <MenuOutlined
-            style={{
-              fontSize: VALUES.TOOLBAR_ICON_SIZE,
-              color: COLORS.MMD_PRIMARY_8
-            }}
-          />
-        </NavigationItem>
-      </div>
-    </Header>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          {getStartedButton}
+          <NavigationItem link="/" style={{ marginLeft: '1rem' }}>
+            <MenuOutlined
+              style={{
+                fontSize: VALUES.TOOLBAR_ICON_SIZE,
+                color: COLORS.MMD_PRIMARY_8
+              }}
+            />
+          </NavigationItem>
+        </div>
+      </Nav>
+    </div>
   );
 };
 
