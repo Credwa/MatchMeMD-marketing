@@ -38,6 +38,11 @@ const CTAButtons = styled.div`
   max-width: 31.5rem;
 `;
 
+const Img = styled.img`
+  max-height: 40rem;
+  z-index: 1000;
+`;
+
 const CTASection: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -71,7 +76,8 @@ const CTASection: React.FC = () => {
               fontSize: VALUES.FONT_16.SIZE,
               lineHeight: VALUES.FONT_16.LINE_HEIGHT,
               color: `${COLORS.MMD_PRIMARY_9}`,
-              maxWidth: '40rem'
+              maxWidth: '40rem',
+              opacity: `${VALUES.TEXT_OPACITY}`
             }}
           >
             MatchMeMD provides a unique approach on educational content for the USMLE. Designed especially for medical
@@ -88,7 +94,6 @@ const CTASection: React.FC = () => {
                 fontSize: '.875rem',
                 width: '48%',
                 minWidth: '9rem',
-                padding: '0',
                 maxWidth: '15rem'
               }}
             >
@@ -112,11 +117,7 @@ const CTASection: React.FC = () => {
           </CTAButtons>
         </div>
 
-        <img
-          src={data.landingImage.publicURL}
-          alt="doctor looks at patient electronic chart tablet"
-          style={{ maxHeight: '40rem' }}
-        />
+        <Img src={data.landingImage.publicURL} alt="doctor looks at patient electronic chart tablet" />
       </Section>
     </div>
   );

@@ -11,7 +11,7 @@ const { Title, Paragraph } = Typography;
 const Section = styled.section`
   margin-top: 5rem;
   @media (min-width: 768px) {
-    margin-top: 20rem;
+    margin-top: 5rem;
     grid-template-columns: 50% 50%;
     grid-template-rows: 30% 30% auto;
   }
@@ -29,11 +29,12 @@ const ProductsSection: React.FC = () => {
     query {
       discussionForum: file(relativePath: { eq: "discussion-forum.svg" }) {
         publicURL
-        relativePath
       }
       leaderboard: file(relativePath: { eq: "leaderboard.svg" }) {
         publicURL
-        relativePath
+      }
+      devices: file(relativePath: { eq: "devices.svg" }) {
+        publicURL
       }
     }
   `);
@@ -59,7 +60,8 @@ const ProductsSection: React.FC = () => {
             color: `${COLORS.MMD_PRIMARY_9}`,
             fontSize: VALUES.FONT_16.SIZE,
             lineHeight: VALUES.FONT_16.LINE_HEIGHT,
-            maxWidth: '40rem'
+            maxWidth: '40rem',
+            opacity: `${VALUES.TEXT_OPACITY}`
           }}
         >
           Get on demand access to our library of content with fun courses and labs. Learn at home on your devices, or
@@ -97,11 +99,12 @@ const ProductsSection: React.FC = () => {
             color: `${COLORS.MMD_PRIMARY_9}`,
             fontSize: VALUES.FONT_16.SIZE,
             lineHeight: VALUES.FONT_16.LINE_HEIGHT,
-            maxWidth: '40rem'
+            maxWidth: '40rem',
+            opacity: `${VALUES.TEXT_OPACITY}`
           }}
         >
-          Challenge easy to difficullt questions and see how you compare with other medical students around the world
-          on our leaderboard.
+          Challenge easy to difficult questions and see how you compare with other medical students around the world on
+          our leaderboard.
         </Paragraph>
         <MDButton
           type="primary"
@@ -124,6 +127,13 @@ const ProductsSection: React.FC = () => {
           alt="doctor looks at patient electronic chart tablet"
           style={{ maxHeight: '40rem' }}
         />
+      </Section>
+
+      <Section>
+        <Title level={3} style={{ color: `${COLORS.MMD_PRIMARY_10}`, textAlign: 'center', marginBottom: '3rem' }}>
+          Available everywhere
+        </Title>
+        <img src={data.devices.publicURL} alt="Devices" style={{ maxHeight: '40rem' }} />
       </Section>
     </div>
   );

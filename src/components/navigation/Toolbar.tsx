@@ -30,7 +30,7 @@ const Toolbar: React.FC<Props> = () => {
         type="primary"
         ghost
         size="middle"
-        style={{ color: `${COLORS.MMD_PRIMARY_8}`, borderColor: `${COLORS.MMD_PRIMARY_8}` }}
+        style={{ color: `${COLORS.MMD_PRIMARY_8}`, borderColor: `${COLORS.MMD_PRIMARY_8}`, padding: '0 0.9735rem' }}
       >
         Get started
       </MDButton>

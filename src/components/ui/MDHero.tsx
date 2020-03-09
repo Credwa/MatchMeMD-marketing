@@ -9,21 +9,32 @@ interface Props {
 const Section = styled.section``;
 
 const MMDHero = styled.div`
-  position: absolute;
-  background-color: ${COLORS.MMD_HERO_BACKGROUND};
+  position: relative;
+  background-color: ${COLORS.MMD_BACKGROUND};
   height: 100vh;
   max-height: 60rem;
   margin: ${VALUES.PAGE_IGNORE_PADDING};
-  margin-top: -0rem;
-  padding: ${VALUES.PAGE_PADDING};
+  margin-top: -8rem;
   width: 100vw;
-  transform: skewY(-15deg);
-  z-index: ${VALUES.HERO_INDEX};
+  overflow: hidden;
+  z-index: 1;
+  &:after {
+    width: 100vw;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 10%;
+    transform: skewY(-4deg);
+    background-color: ${COLORS.MMD_HERO_BACKGROUND};
+    z-index: ${VALUES.LAST_INDEX};
+  }
 `;
 
 const ChildrenSection = styled.div`
-  padding-top: 8rem;
-  padding-bottom: 12rem;
+  padding-top: 10rem;
+  z-index: 10;
+  margin: ${VALUES.PAGE_PADDING};
   @media (min-width: 768px) {
     padding-top: 15rem;
   }
@@ -37,8 +48,9 @@ const ChildrenSection = styled.div`
 const MDHero: React.FC<Props> = ({ children }) => {
   return (
     <Section>
-      <MMDHero />
-      <ChildrenSection>{children}</ChildrenSection>
+      <MMDHero>
+        <ChildrenSection>{children}</ChildrenSection>
+      </MMDHero>
     </Section>
   );
 };

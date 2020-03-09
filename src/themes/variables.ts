@@ -16,6 +16,7 @@ interface UiValues {
   LAST_INDEX: number;
   HERO_INDEX: number;
   PAGE_MAX_WIDTH: number;
+  TEXT_OPACITY: number;
 }
 
 interface UiColors {
@@ -67,7 +68,7 @@ export const COLORS: UiColors = {
   MMD_SECONDARY_8: '#8C3B00',
   MMD_SECONDARY_9: '#662B00',
   MMD_SECONDARY_10: '#331500',
-  MMD_NEUTRAL_LIGHT: '#ffffff'
+  MMD_NEUTRAL_LIGHT: '#F8FCFC'
 };
 
 export const VALUES: UiValues = {
@@ -81,5 +82,6 @@ export const VALUES: UiValues = {
   },
   PAGE_MAX_WIDTH: 1224,
   LAST_INDEX: -1000,
-  HERO_INDEX: -500
+  HERO_INDEX: -500,
+  TEXT_OPACITY: 0.9
 };

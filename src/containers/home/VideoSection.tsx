@@ -27,7 +27,8 @@ const VideoSection: React.FC = () => {
             color: `${COLORS.MMD_NEUTRAL_LIGHT}`,
             fontSize: VALUES.FONT_16.SIZE,
             lineHeight: VALUES.FONT_16.LINE_HEIGHT,
-            maxWidth: '40rem'
+            maxWidth: '40rem',
+            opacity: `${VALUES.TEXT_OPACITY}`
           }}
         >
           Get on demand access to our library of content with fun courses and labs. Learn at home on your devices, or
