@@ -117,7 +117,11 @@ const CTASection: React.FC = () => {
           </CTAButtons>
         </div>
 
-        <Img src={data.landingImage.publicURL} alt="doctor looks at patient electronic chart tablet" />
+        <Img
+          src={data.landingImage.publicURL}
+          alt="doctor looks at patient electronic chart tablet"
+          style={{ marginBottom: '1rem' }}
+        />
       </Section>
     </div>
   );

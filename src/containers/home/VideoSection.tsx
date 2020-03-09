@@ -18,7 +18,7 @@ const VideoSection: React.FC = () => {
   }
   return (
     <div style={containerStyle}>
-      <MDHero>
+      <MDHero skewed height={100}>
         <Title level={3} style={{ color: `${COLORS.MMD_NEUTRAL_LIGHT}` }}>
           Engaging video content for learning
         </Title>

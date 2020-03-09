@@ -6,7 +6,6 @@ import Layout from '@/layouts/Layout';
 import React from 'react';
 import SEO from '@/components/SEO';
 
-
 const IndexPage: React.FC = () => (
   <Layout>
     <SEO title="Home" meta={[]} />
@@ -14,6 +13,7 @@ const IndexPage: React.FC = () => (
     <HomeVideoSection />
     <HomeProductsSection />
     <HomeTestimonialsSection />
+    <HomeProductsSection />
   </Layout>
 );
 

@@ -17,7 +17,8 @@ const Section = styled.section`
   }
 
   @media (min-width: ${VALUES.PAGE_MAX_WIDTH}px) {
-    margin-top: 30rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
     max-width: ${VALUES.PAGE_MAX_WIDTH}px;
     margin-left: auto;
     margin-right: auto;
