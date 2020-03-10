@@ -66,7 +66,7 @@ const CTASection: React.FC = () => {
     <div style={containerStyle}>
       <Section>
         <Ellipse color="secondary" height={5} width={5} top={30} left={-2} />
-        <Ellipse color="primary" height={7} width={7} top={26} right={-3} />
+        <Ellipse color="primary" height={7} width={7} top={26} right={0.1} />
         <div className="CTA">
           <Title level={2} style={{ color: `${COLORS.MMD_PRIMARY_10}` }}>
             Become the perfect medical match

@@ -11,7 +11,6 @@ interface Props {}
 
 const Nav = styled.nav`
   min-height: ${VALUES.TOOLBAR_HEIGHT};
-  background-color: ${COLORS.MMD_BACKGROUND};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,7 +37,7 @@ const Toolbar: React.FC<Props> = () => {
   );
 
   return (
-    <div style={{ width: '100vw', margin: 'auto' }}>
+    <div style={{ width: '100vw', margin: 'auto', backgroundColor: `${COLORS.MMD_BACKGROUND}` }}>
       <Nav>
         <NavigationItem link="/">
           <Logo width={120} />

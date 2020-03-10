@@ -15,13 +15,7 @@ const Logo: React.FC<Props> = ({ width, height }) => {
       }
     }
   `);
-  return (
-    <img
-      src={data.logo.publicURL}
-      alt="MatchMeMD Logo"
-      style={{ paddingTop: '.625rem', width: '35vw', maxWidth: '10rem' }}
-    />
-  );
+  return <img src={data.logo.publicURL} alt="MatchMeMD Logo" style={{ width: '35vw', maxWidth: '10rem' }} />;
 };
 
 export default Logo;
