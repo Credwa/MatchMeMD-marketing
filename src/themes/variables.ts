@@ -13,6 +13,7 @@ interface UiValues {
   PAGE_PADDING: string;
   PAGE_PADDING_SINGLE: string;
   PAGE_PADDING_SINGLE_NEGATIVE: string;
+  TOOLBAR_HEIGHT_NEGATIVE: string;
   PAGE_IGNORE_PADDING: string;
   FONT_16: font;
   LAST_INDEX: number;
@@ -76,6 +77,9 @@ export const COLORS: UiColors = {
 
 export const VALUES: UiValues = {
   TOOLBAR_HEIGHT: '2.75rem',
+  get TOOLBAR_HEIGHT_NEGATIVE(): string {
+    return `-${this.TOOLBAR_HEIGHT}`;
+  },
   TOOLBAR_ICON_SIZE: '1.5rem',
   PAGE_PADDING: '0 1.875rem',
   PAGE_PADDING_SINGLE: '1.875rem',

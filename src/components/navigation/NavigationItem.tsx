@@ -1,12 +1,14 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import { VALUES } from '@/themes/variables';
 
 interface Props {
   children: React.ReactNode;
   link: string;
+  isLink?: boolean;
   style?: object;
+  toggleDrawer?: any;
 }
 
 const NavBarItem = styled(Link)`
@@ -15,9 +17,9 @@ const NavBarItem = styled(Link)`
   align-items: center;
 `;
 
-const NavigationItem: React.FC<Props> = ({ link, children, style }) => {
+const NavigationItem: React.FC<Props> = ({ link, children, style, toggleDrawer }) => {
   return (
-    <NavBarItem to={link} style={style}>
+    <NavBarItem to={link} style={style} onClick={toggleDrawer}>
       {children}
     </NavBarItem>
   );

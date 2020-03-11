@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Typography from 'antd/es/typography';
 import { COLORS, VALUES } from '@/themes/variables';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, navigate, useStaticQuery } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
 
 const { Title, Paragraph } = Typography;
@@ -79,6 +79,7 @@ const ProductsSection: React.FC = () => {
             maxWidth: '15rem',
             margin: '2rem 0 3rem 0'
           }}
+          onClick={event => navigate('/subscribe')}
         >
           Learn more
         </MDButton>
@@ -118,6 +119,7 @@ const ProductsSection: React.FC = () => {
             maxWidth: '15rem',
             margin: '2rem 0 3rem 0'
           }}
+          onClick={event => navigate('/subscribe')}
         >
           Learn more
         </MDButton>

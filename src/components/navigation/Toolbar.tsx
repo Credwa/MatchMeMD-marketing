@@ -7,7 +7,9 @@ import { COLORS, VALUES } from '@/themes/variables';
 import { MenuOutlined } from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
 
-interface Props {}
+interface Props {
+  drawerToggleClicked: Function;
+}
 
 const Nav = styled.nav`
   min-height: ${VALUES.TOOLBAR_HEIGHT};
@@ -20,11 +22,11 @@ const Nav = styled.nav`
   margin-right: auto;
 `;
 
-const Toolbar: React.FC<Props> = () => {
+const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
   const isReallySmallScreen = useMediaQuery({ maxWidth: 325 });
 
   const getStartedButton = isReallySmallScreen ? null : (
-    <NavigationItem link="/">
+    <NavigationItem link="/subscribe">
       <MDButton
         type="primary"
         ghost
@@ -45,7 +47,7 @@ const Toolbar: React.FC<Props> = () => {
 
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {getStartedButton}
-          <NavigationItem link="/subscribe" style={{ marginLeft: '1rem' }}>
+          <NavigationItem style={{ marginLeft: '1rem' }} toggleDrawer={drawerToggleClicked}>
             <MenuOutlined
               style={{
                 fontSize: VALUES.TOOLBAR_ICON_SIZE,

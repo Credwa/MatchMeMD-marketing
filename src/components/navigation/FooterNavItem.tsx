@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Typography from 'antd/es/typography';
-import { COLORS, VALUES } from '@/themes/variables';
+import { COLORS } from '@/themes/variables';
 import { Link } from 'gatsby';
-
-const { Paragraph } = Typography;
 
 interface Props {
   children: React.ReactNode;
@@ -13,9 +10,16 @@ interface Props {
 }
 
 const NavItem = styled(Link)`
-  height: ${VALUES.TOOLBAR_HEIGHT};
   display: flex;
   align-items: center;
+  &:active {
+    color: ${COLORS.MMD_PRIMARY_2} !important;
+    opacity: 1 !important;
+  }
+  &:hover {
+    color: ${COLORS.MMD_PRIMARY_2} !important;
+    opacity: 1 !important;
+  }
 `;
 
 const FooterNavItem: React.FC<Props> = ({ link, children, style }) => {

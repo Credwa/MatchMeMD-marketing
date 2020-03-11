@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Typography from 'antd/es/typography';
 import { COLORS, VALUES } from '@/themes/variables';
 import { graphql, useStaticQuery } from 'gatsby';
+import { navigate } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
 
 const { Title, Paragraph } = Typography;
@@ -96,6 +97,7 @@ const CTASection: React.FC = () => {
                 minWidth: '9rem',
                 maxWidth: '15rem'
               }}
+              onClick={event => navigate('/subscribe')}
             >
               Start a free trial
             </MDButton>
@@ -111,6 +113,7 @@ const CTASection: React.FC = () => {
                 minWidth: '9rem',
                 maxWidth: '15rem'
               }}
+              onClick={event => navigate('/subscribe')}
             >
               See pricing
             </MDButton>

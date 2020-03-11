@@ -4,6 +4,7 @@ import React from 'react';
 import ReactPlayer from 'react-player';
 import Typography from 'antd/es/typography';
 import { COLORS, VALUES } from '@/themes/variables';
+import { navigate } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
 
 const { Title, Paragraph } = Typography;
@@ -47,6 +48,7 @@ const VideoSection: React.FC = () => {
             maxWidth: '15rem',
             margin: '2rem 0 3rem 0'
           }}
+          onClick={event => navigate('/subscribe')}
         >
           Learn more
         </MDButton>

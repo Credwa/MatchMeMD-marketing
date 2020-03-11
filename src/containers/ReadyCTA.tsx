@@ -3,6 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Typography from 'antd/es/typography';
 import { COLORS, VALUES } from '@/themes/variables';
+import { navigate } from 'gatsby';
+
 const { Title, Paragraph } = Typography;
 interface Props {}
 
@@ -72,6 +74,7 @@ const ReadyCTA: React.FC<Props> = () => {
               width: '48%',
               maxWidth: '15rem'
             }}
+            onClick={event => navigate('/subscribe')}
           >
             Start now
           </MDButton>
@@ -87,6 +90,7 @@ const ReadyCTA: React.FC<Props> = () => {
               width: '48%',
               maxWidth: '15rem'
             }}
+            onClick={event => navigate('/subscribe')}
           >
             Contact us
           </MDButton>

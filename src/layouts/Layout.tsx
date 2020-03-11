@@ -1,15 +1,10 @@
 import Footer from '@/components/navigation/Footer';
-import React from 'react';
+import React, { useState } from 'react';
+import SideDrawer from '@/components/navigation/SideDrawer';
 import styled from 'styled-components';
 import Toolbar from '@/components/navigation/Toolbar';
 import { COLORS, VALUES } from '@/themes/variables';
 import { createGlobalStyle } from 'styled-components';
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
 
 const GlobalStyle = createGlobalStyle`
   body,html,* {
@@ -32,13 +27,26 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => (
-  <>
-    <GlobalStyle />
-    <Toolbar />
-    <Main>{children}</Main>
-    <Footer />
-  </>
-);
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const [sideDrawerVisible, setSideDrawerVisible] = useState(false);
+
+  const sideDrawerClosedHandler = () => {
+    setSideDrawerVisible(false);
+  };
+
+  const sideDrawerToggleHandler = () => {
+    setSideDrawerVisible(!sideDrawerVisible);
+  };
+
+  return (
+    <>
+      <GlobalStyle />
+      <Toolbar drawerToggleClicked={sideDrawerToggleHandler} />
+      <SideDrawer show={sideDrawerVisible} closed={sideDrawerClosedHandler} />
+      <Main>{children}</Main>
+      <Footer />
+    </>
+  );
+};
 
 export default Layout;
