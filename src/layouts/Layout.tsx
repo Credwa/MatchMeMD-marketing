@@ -1,3 +1,4 @@
+import Footer from '@/components/navigation/Footer';
 import React from 'react';
 import styled from 'styled-components';
 import Toolbar from '@/components/navigation/Toolbar';
@@ -17,9 +18,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   body {
-    background-color: ${COLORS.MMD_BACKGROUND};
+    background-color: ${COLORS.MMD_BACKGROUND} !important;
     overflow-x: hidden;
-    max-width: ${VALUES.PAGE_MAX_WIDTH}px;
   }
 `;
 
@@ -37,6 +37,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => (
     <GlobalStyle />
     <Toolbar />
     <Main>{children}</Main>
+    <Footer />
   </>
 );
 

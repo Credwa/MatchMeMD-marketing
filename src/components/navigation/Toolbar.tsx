@@ -29,7 +29,7 @@ const Toolbar: React.FC<Props> = () => {
         type="primary"
         ghost
         size="middle"
-        style={{ color: `${COLORS.MMD_PRIMARY_8}`, borderColor: `${COLORS.MMD_PRIMARY_8}`, padding: '0 0.9735rem' }}
+        style={{ color: `${COLORS.MMD_PRIMARY_8}`, borderColor: `${COLORS.MMD_PRIMARY_8}` }}
       >
         Get started
       </MDButton>
@@ -45,7 +45,7 @@ const Toolbar: React.FC<Props> = () => {
 
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {getStartedButton}
-          <NavigationItem link="/" style={{ marginLeft: '1rem' }}>
+          <NavigationItem link="/subscribe" style={{ marginLeft: '1rem' }}>
             <MenuOutlined
               style={{
                 fontSize: VALUES.TOOLBAR_ICON_SIZE,

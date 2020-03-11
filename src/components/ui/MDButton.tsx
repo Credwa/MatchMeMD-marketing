@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const StyledMDButton = styled(Button)`
   white-space: nowrap;
-  padding: 0;
   z-index: 100;
 `;
 

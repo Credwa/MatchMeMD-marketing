@@ -44,10 +44,10 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `MatchMeMD Site`,
-        short_name: `MMMD`,
+        short_name: `MMD`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#F8FCFC`,
+        theme_color: `#00A8BA`,
         display: `minimal-ui`,
         icon: `src/assets/images/MatchMeMD-icon.svg` // This path is relative to the root of the site.
       }

@@ -4,6 +4,7 @@ import HomeTestimonialsSection from '@/containers/home/TestimonialsSection';
 import HomeVideoSection from '@/containers/home/VideoSection';
 import Layout from '@/layouts/Layout';
 import React from 'react';
+import ReadyCTA from '@/containers/ReadyCTA';
 import SEO from '@/components/SEO';
 
 const IndexPage: React.FC = () => (
@@ -13,7 +14,7 @@ const IndexPage: React.FC = () => (
     <HomeVideoSection />
     <HomeProductsSection />
     <HomeTestimonialsSection />
-    <HomeProductsSection />
+    <ReadyCTA />
   </Layout>
 );
 

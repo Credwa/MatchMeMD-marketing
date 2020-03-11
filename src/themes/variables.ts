@@ -11,12 +11,15 @@ interface UiValues {
   TOOLBAR_HEIGHT: string;
   TOOLBAR_ICON_SIZE: string;
   PAGE_PADDING: string;
+  PAGE_PADDING_SINGLE: string;
+  PAGE_PADDING_SINGLE_NEGATIVE: string;
   PAGE_IGNORE_PADDING: string;
   FONT_16: font;
   LAST_INDEX: number;
   HERO_INDEX: number;
   PAGE_MAX_WIDTH: number;
   TEXT_OPACITY: number;
+  FOOTER_LINK_OPACITY: number;
 }
 
 interface UiColors {
@@ -75,13 +78,18 @@ export const VALUES: UiValues = {
   TOOLBAR_HEIGHT: '2.75rem',
   TOOLBAR_ICON_SIZE: '1.5rem',
   PAGE_PADDING: '0 1.875rem',
+  PAGE_PADDING_SINGLE: '1.875rem',
+  get PAGE_PADDING_SINGLE_NEGATIVE(): string {
+    return `-${this.PAGE_PADDING_SINGLE}`;
+  },
   PAGE_IGNORE_PADDING: '0 -1.875rem',
   FONT_16: {
     SIZE: '1rem',
     LINE_HEIGHT: '1.5rem'
   },
-  PAGE_MAX_WIDTH: 1224,
+  PAGE_MAX_WIDTH: 1440,
   LAST_INDEX: -1000,
   HERO_INDEX: -500,
-  TEXT_OPACITY: 0.9
+  TEXT_OPACITY: 0.9,
+  FOOTER_LINK_OPACITY: 0.85
 };

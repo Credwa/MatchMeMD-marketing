@@ -1,6 +1,7 @@
 import MDButton from '@/components/ui/MDButton';
 import MDHero from '@/components/ui/MDHero';
 import React from 'react';
+import ReactPlayer from 'react-player';
 import Typography from 'antd/es/typography';
 import { COLORS, VALUES } from '@/themes/variables';
 import { useMediaQuery } from 'react-responsive';
@@ -18,7 +19,7 @@ const VideoSection: React.FC = () => {
   }
   return (
     <div style={containerStyle}>
-      <MDHero skewed height={100}>
+      <MDHero skewed height={60}>
         <Title level={3} style={{ color: `${COLORS.MMD_NEUTRAL_LIGHT}` }}>
           Engaging video content for learning
         </Title>
@@ -40,7 +41,7 @@ const VideoSection: React.FC = () => {
           style={{
             backgroundColor: `${COLORS.MMD_SECONDARY_5}`,
             borderColor: `${COLORS.MMD_SECONDARY_4}`,
-            fontSize: '.875rem',
+            fontSize: '1rem',
             width: '48%',
             minWidth: '9rem',
             maxWidth: '15rem',
@@ -49,15 +50,7 @@ const VideoSection: React.FC = () => {
         >
           Learn more
         </MDButton>
-        <iframe
-          width="300"
-          height="250"
-          src="https://www.youtube.com/embed/t87VGQ-NlwQ"
-          frameBorder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          style={{ borderRadius: '6px' }}
-          title="Random vid"
-        ></iframe>
+        <ReactPlayer url="https://streamable.com/moo" controls height={250} width={300} />
       </MDHero>
     </div>
   );

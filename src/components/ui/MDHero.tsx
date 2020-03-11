@@ -12,10 +12,11 @@ interface HeroProps {
 const MMDHero = styled.section<HeroProps>`
   position: relative;
   background-color: ${COLORS.MMD_BACKGROUND};
-  height: ${props => (props.height ? `${props.height}vh` : null)};
-  max-height: 60rem;
+  height: ${props => (props.height ? `${props.height}rem` : null)};
+  max-height: 55rem;
   margin: ${VALUES.PAGE_IGNORE_PADDING};
   margin-top: ${props => (props.skewed ? '-8rem' : null)};
+  padding: 3rem 0;
   width: 100vw;
   overflow: hidden;
   z-index: 1;
@@ -38,6 +39,10 @@ const ChildrenSection = styled.div`
   margin: ${VALUES.PAGE_PADDING};
   @media (min-width: 768px) {
     padding-top: 15rem;
+    padding-left: ${VALUES.PAGE_PADDING_SINGLE};
+    padding-right: ${VALUES.PAGE_PADDING_SINGLE};
+    margin-left: auto;
+    margin-right: auto;
   }
   @media (min-width: ${VALUES.PAGE_MAX_WIDTH}px) {
     max-width: ${VALUES.PAGE_MAX_WIDTH}px;

@@ -91,13 +91,13 @@ const CTASection: React.FC = () => {
               style={{
                 backgroundColor: `${COLORS.MMD_SECONDARY_5}`,
                 borderColor: `${COLORS.MMD_SECONDARY_4}`,
-                fontSize: '.875rem',
+                fontSize: '1rem',
                 width: '48%',
                 minWidth: '9rem',
                 maxWidth: '15rem'
               }}
             >
-              Start a 7-day free trial
+              Start a free trial
             </MDButton>
             <MDButton
               ghost
@@ -106,7 +106,7 @@ const CTASection: React.FC = () => {
               style={{
                 color: `${COLORS.MMD_PRIMARY_8}`,
                 borderColor: `${COLORS.MMD_PRIMARY_8}`,
-                fontSize: '.875rem',
+                fontSize: '1rem',
                 width: '48%',
                 minWidth: '9rem',
                 maxWidth: '15rem'

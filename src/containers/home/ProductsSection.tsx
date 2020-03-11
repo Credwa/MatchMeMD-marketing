@@ -40,14 +40,13 @@ const ProductsSection: React.FC = () => {
     }
   `);
 
-  console.log(data);
-
   const isLargeScreen = useMediaQuery({ minWidth: VALUES.PAGE_MAX_WIDTH });
   let containerStyle = {};
   if (isLargeScreen) {
     containerStyle = {
       width: '100vw',
-      margin: 'auto'
+      margin: 'auto',
+      padding: `${VALUES.PAGE_PADDING}`
     };
   }
   return (
@@ -74,7 +73,7 @@ const ProductsSection: React.FC = () => {
           style={{
             backgroundColor: `${COLORS.MMD_SECONDARY_5}`,
             borderColor: `${COLORS.MMD_SECONDARY_4}`,
-            fontSize: '.875rem',
+            fontSize: '1rem',
             width: '48%',
             minWidth: '9rem',
             maxWidth: '15rem',
@@ -113,7 +112,7 @@ const ProductsSection: React.FC = () => {
           style={{
             backgroundColor: `${COLORS.MMD_SECONDARY_5}`,
             borderColor: `${COLORS.MMD_SECONDARY_4}`,
-            fontSize: '.875rem',
+            fontSize: '1rem',
             width: '48%',
             minWidth: '9rem',
             maxWidth: '15rem',
@@ -134,7 +133,7 @@ const ProductsSection: React.FC = () => {
         <Title level={3} style={{ color: `${COLORS.MMD_PRIMARY_10}`, textAlign: 'center', marginBottom: '3rem' }}>
           Available everywhere
         </Title>
-        <img src={data.devices.publicURL} alt="Devices" style={{ maxHeight: '40rem' }} />
+        <img src={data.devices.publicURL} alt="Devices" style={{ maxHeight: '15rem' }} />
       </Section>
     </div>
   );
