@@ -24,6 +24,7 @@ const VideoSection: React.FC = () => {
         <Title level={3} style={{ color: `${COLORS.MMD_NEUTRAL_LIGHT}` }}>
           Engaging video content for learning
         </Title>
+
         <Paragraph
           style={{
             color: `${COLORS.MMD_NEUTRAL_LIGHT}`,
@@ -36,6 +37,7 @@ const VideoSection: React.FC = () => {
           Get on demand access to our library of content with fun courses and labs. Learn at home on your devices, or
           download content on our mobile version for on the go offline learning.
         </Paragraph>
+
         <MDButton
           type="primary"
           size="large"

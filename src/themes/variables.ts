@@ -21,6 +21,7 @@ interface UiValues {
   PAGE_MAX_WIDTH: number;
   TEXT_OPACITY: number;
   FOOTER_LINK_OPACITY: number;
+  SMALL_IPHONE_BREAKPOINT: number;
 }
 
 interface UiColors {
@@ -92,6 +93,7 @@ export const VALUES: UiValues = {
     LINE_HEIGHT: '1.5rem'
   },
   PAGE_MAX_WIDTH: 1440,
+  SMALL_IPHONE_BREAKPOINT: 331,
   LAST_INDEX: -1000,
   HERO_INDEX: -500,
   TEXT_OPACITY: 0.9,

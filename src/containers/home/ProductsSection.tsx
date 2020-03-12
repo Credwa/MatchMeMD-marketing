@@ -1,3 +1,4 @@
+import Fade from 'react-reveal/Fade';
 import MDButton from '@/components/ui/MDButton';
 import React from 'react';
 import styled from 'styled-components';
@@ -52,90 +53,114 @@ const ProductsSection: React.FC = () => {
   return (
     <div style={containerStyle}>
       <Section>
-        <Title level={3} style={{ color: `${COLORS.MMD_PRIMARY_10}` }}>
-          Full-flegded discussion forum
-        </Title>
-        <Paragraph
-          style={{
-            color: `${COLORS.MMD_PRIMARY_9}`,
-            fontSize: VALUES.FONT_16.SIZE,
-            lineHeight: VALUES.FONT_16.LINE_HEIGHT,
-            maxWidth: '40rem',
-            opacity: `${VALUES.TEXT_OPACITY}`
-          }}
-        >
-          Get on demand access to our library of content with fun courses and labs. Learn at home on your devices, or
-          download content on our mobile version for on the go offline learning.
-        </Paragraph>
-        <MDButton
-          type="primary"
-          size="large"
-          style={{
-            backgroundColor: `${COLORS.MMD_SECONDARY_5}`,
-            borderColor: `${COLORS.MMD_SECONDARY_4}`,
-            fontSize: '1rem',
-            width: '48%',
-            minWidth: '9rem',
-            maxWidth: '15rem',
-            margin: '2rem 0 3rem 0'
-          }}
-          onClick={event => navigate('/subscribe')}
-        >
-          Learn more
-        </MDButton>
+        <Fade left>
+          <Title level={3} style={{ color: `${COLORS.MMD_PRIMARY_10}` }}>
+            Full-flegded discussion forum
+          </Title>
+        </Fade>
 
-        <img
-          src={data.discussionForum.publicURL}
-          alt="doctor looks at patient electronic chart tablet"
-          style={{ maxHeight: '40rem' }}
-        />
+        <Fade left>
+          <Paragraph
+            style={{
+              color: `${COLORS.MMD_PRIMARY_9}`,
+              fontSize: VALUES.FONT_16.SIZE,
+              lineHeight: VALUES.FONT_16.LINE_HEIGHT,
+              maxWidth: '40rem',
+              opacity: `${VALUES.TEXT_OPACITY}`
+            }}
+          >
+            Get on demand access to our library of content with fun courses and labs. Learn at home on your devices, or
+            download content on our mobile version for on the go offline learning.
+          </Paragraph>
+        </Fade>
+
+        <Fade right>
+          <MDButton
+            type="primary"
+            size="large"
+            style={{
+              backgroundColor: `${COLORS.MMD_SECONDARY_5}`,
+              borderColor: `${COLORS.MMD_SECONDARY_4}`,
+              fontSize: '1rem',
+              width: '48%',
+              minWidth: '9rem',
+              maxWidth: '15rem',
+              margin: '2rem 0 3rem 0'
+            }}
+            onClick={event => navigate('/subscribe')}
+          >
+            Learn more
+          </MDButton>
+        </Fade>
+
+        <Fade right>
+          <img
+            src={data.discussionForum.publicURL}
+            alt="doctor looks at patient electronic chart tablet"
+            style={{ maxHeight: '40rem' }}
+          />
+        </Fade>
       </Section>
 
       <Section>
-        <Title level={3} style={{ color: `${COLORS.MMD_PRIMARY_10}` }}>
-          See how you compare
-        </Title>
-        <Paragraph
-          style={{
-            color: `${COLORS.MMD_PRIMARY_9}`,
-            fontSize: VALUES.FONT_16.SIZE,
-            lineHeight: VALUES.FONT_16.LINE_HEIGHT,
-            maxWidth: '40rem',
-            opacity: `${VALUES.TEXT_OPACITY}`
-          }}
-        >
-          Challenge easy to difficult questions and see how you compare with other medical students around the world on
-          our leaderboard.
-        </Paragraph>
-        <MDButton
-          type="primary"
-          size="large"
-          style={{
-            backgroundColor: `${COLORS.MMD_SECONDARY_5}`,
-            borderColor: `${COLORS.MMD_SECONDARY_4}`,
-            fontSize: '1rem',
-            width: '48%',
-            minWidth: '9rem',
-            maxWidth: '15rem',
-            margin: '2rem 0 3rem 0'
-          }}
-          onClick={event => navigate('/subscribe')}
-        >
-          Learn more
-        </MDButton>
+        <Fade left>
+          <Title level={3} style={{ color: `${COLORS.MMD_PRIMARY_10}` }}>
+            See how you compare
+          </Title>
+        </Fade>
 
-        <img
-          src={data.leaderboard.publicURL}
-          alt="doctor looks at patient electronic chart tablet"
-          style={{ maxHeight: '40rem' }}
-        />
+        <Fade left>
+          <Paragraph
+            style={{
+              color: `${COLORS.MMD_PRIMARY_9}`,
+              fontSize: VALUES.FONT_16.SIZE,
+              lineHeight: VALUES.FONT_16.LINE_HEIGHT,
+              maxWidth: '40rem',
+              opacity: `${VALUES.TEXT_OPACITY}`
+            }}
+          >
+            Challenge easy to difficult questions and see how you compare with other medical students around the world
+            on our leaderboard.
+          </Paragraph>
+        </Fade>
+
+        <Fade right>
+          <MDButton
+            type="primary"
+            size="large"
+            style={{
+              backgroundColor: `${COLORS.MMD_SECONDARY_5}`,
+              borderColor: `${COLORS.MMD_SECONDARY_4}`,
+              fontSize: '1rem',
+              width: '48%',
+              minWidth: '9rem',
+              maxWidth: '15rem',
+              margin: '2rem 0 3rem 0'
+            }}
+            onClick={event => navigate('/subscribe')}
+          >
+            Learn more
+          </MDButton>
+        </Fade>
+
+        <Fade right>
+          <img
+            src={data.leaderboard.publicURL}
+            alt="doctor looks at patient electronic chart tablet"
+            style={{ maxHeight: '40rem' }}
+          />
+        </Fade>
       </Section>
 
       <Section>
-        <Title level={3} style={{ color: `${COLORS.MMD_PRIMARY_10}`, textAlign: 'center', marginBottom: '3rem' }}>
-          Available everywhere
-        </Title>
-        <img src={data.devices.publicURL} alt="Devices" style={{ maxHeight: '15rem' }} />
+        <Fade left>
+          <Title level={3} style={{ color: `${COLORS.MMD_PRIMARY_10}`, textAlign: 'center', marginBottom: '3rem' }}>
+            Available everywhere
+          </Title>
+        </Fade>
+        <Fade right>
+          <img src={data.devices.publicURL} alt="Devices" style={{ maxHeight: '15rem' }} />
+        </Fade>
       </Section>
     </div>
   );
