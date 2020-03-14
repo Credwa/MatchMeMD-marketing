@@ -12,11 +12,13 @@ import { useMediaQuery } from 'react-responsive';
 const { Title, Paragraph } = Typography;
 const Section = styled.section`
   display: grid;
+  margin-top: 3rem;
 
   @media (min-width: 768px) {
     margin-top: 5rem;
     grid-template-columns: 50% 50%;
     grid-template-rows: 30% 30% auto;
+    z-index: 1201 !important;
     grid-template-areas:
       'CTA img'
       'CTA img'
@@ -38,7 +40,6 @@ const CTAButtons = styled.div`
   align-content: center;
   margin: 5rem 0 7rem;
   flex-wrap: wrap;
-  max-width: 31.5rem;
   @media (max-width: ${VALUES.SMALL_IPHONE_BREAKPOINT}px) {
     flex-direction: column;
   }
@@ -46,7 +47,6 @@ const CTAButtons = styled.div`
 
 const Img = styled.img`
   max-height: 40rem;
-  z-index: 1200 !important;
 `;
 
 const CTASection: React.FC = () => {
@@ -65,13 +65,13 @@ const CTASection: React.FC = () => {
 
   let buttonStyle: any = {
     fontSize: '1rem',
-    width: '48%',
-    minWidth: '8.5rem',
-    maxWidth: '15rem'
+    width: '40vw',
+    maxWidth: '25rem',
+    minWidth: '9rem'
   };
 
   if (isExtraSmallScreen) {
-    buttonStyle = { ...buttonStyle, marginTop: '1rem', width: '25rem' };
+    buttonStyle = { ...buttonStyle, marginTop: '1rem', width: '80vw' };
   }
 
   let containerStyle = {};

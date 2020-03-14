@@ -51,14 +51,6 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/assets/images/MatchMeMD-icon.svg` // This path is relative to the root of the site.
       }
-    },
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /assets/
-        }
-      }
     }
   ]
 };

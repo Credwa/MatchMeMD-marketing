@@ -54,7 +54,15 @@ const VideoSection: React.FC = () => {
         >
           Learn more
         </MDButton>
-        <ReactPlayer url="https://streamable.com/moo" controls height={250} width={300} />
+        <div style={{ position: 'relative', paddingTop: '56.25%' }}>
+          <ReactPlayer
+            url="https://streamable.com/moo"
+            style={{ position: 'absolute', top: '0', left: '0' }}
+            controls
+            width="100%"
+            height="100%"
+          />
+        </div>
       </MDHero>
     </div>
   );

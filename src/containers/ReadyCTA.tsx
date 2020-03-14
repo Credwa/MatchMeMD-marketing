@@ -29,13 +29,12 @@ const Section = styled.section`
 
 const CTAButtons = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   align-content: center;
   margin: 2rem 0 0;
   flex-wrap: wrap;
-  max-width: 31.5rem;
   @media (max-width: ${VALUES.SMALL_IPHONE_BREAKPOINT}px) {
     flex-direction: column;
   }
@@ -46,13 +45,13 @@ const ReadyCTA: React.FC<Props> = () => {
 
   let buttonStyle: any = {
     fontSize: '1rem',
-    width: '48%',
-    minWidth: '8.5rem',
-    maxWidth: '15rem'
+    width: '40vw',
+    maxWidth: '15rem',
+    minWidth: '9rem'
   };
 
   if (isExtraSmallScreen) {
-    buttonStyle = { ...buttonStyle, marginTop: '1rem', width: '25rem' };
+    buttonStyle = { ...buttonStyle, marginTop: '1rem', width: '80vw' };
   }
   return (
     <Section>

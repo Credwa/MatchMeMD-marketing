@@ -19,7 +19,7 @@ const MMDHero = styled.section<HeroProps>`
   padding: 3rem 0;
   width: 100vw;
   overflow: hidden;
-  z-index: 1;
+  z-index: -100;
   &:after {
     width: 100vw;
     content: '';

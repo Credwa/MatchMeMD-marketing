@@ -8,7 +8,7 @@ import { MenuOutlined } from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
 
 interface Props {
-  drawerToggleClicked: Function;
+  drawerToggleClicked: any;
 }
 
 const Nav = styled.nav`
@@ -47,14 +47,18 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
 
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {getStartedButton}
-          <NavigationItem style={{ marginLeft: '1rem' }} toggleDrawer={drawerToggleClicked}>
-            <MenuOutlined
-              style={{
-                fontSize: VALUES.TOOLBAR_ICON_SIZE,
-                color: COLORS.MMD_PRIMARY_8
-              }}
-            />
-          </NavigationItem>
+          <MDButton
+            type="link"
+            icon={<MenuOutlined style={{ fontSize: '24px' }} />}
+            style={{
+              marginLeft: '1rem',
+              height: `${VALUES.TOOLBAR_HEIGHT}`,
+              color: `${COLORS.MMD_PRIMARY_8}`,
+              display: 'flex',
+              alignItems: 'center'
+            }}
+            onClick={drawerToggleClicked}
+          ></MDButton>
         </div>
       </Nav>
     </div>
