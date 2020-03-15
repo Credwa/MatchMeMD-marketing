@@ -1,29 +1,40 @@
 /**
  * @license
  * MyFonts Webfont Build ID 3880085, 2020-03-15T00:51:36-0400
- * 
+ *
  * The fonts listed in this notice are subject to the End User License
- * Agreement(s) entered into by the website owner. All other parties are 
+ * Agreement(s) entered into by the website owner. All other parties are
  * explicitly restricted from using the Licensed Webfonts(s).
- * 
+ *
  * You may obtain a valid license at the URLs below.
- * 
+ *
  * Webfont: HelveticaNeueLTPro-Md by Linotype
  * URL: https://www.myfonts.com/fonts/linotype/neue-helvetica/pro-65-medium/
  * Copyright: Copyright &amp;#x00A9; 2014 Monotype Imaging Inc. All rights reserved.
- * 
- * 
- * 
+ *
+ *
+ *
  * © 2020 MyFonts Inc
 */
 
-
 /* @import must be at top of file, otherwise CSS will not work */
-@import url("//hello.myfonts.net/count/3b3495");
-  
+@import url('//hello.myfonts.net/count/3b3495');
+@import url('//hello.myfonts.net/count/3b34ca');
+
 @font-face {
-  src: url('webFonts/HelveticaNeueLTPro-Md/font.eot');
+  src: url('fonts/HelveticaNeueLTPro-Md/font.eot');
   font-family: 'HelveticaNeueLTPro-Md';
-  src: url('webFonts/HelveticaNeueLTPro-Md/font.woff2') format('woff2'), url('webFonts/HelveticaNeueLTPro-Md/font.woff') format('woff'), url('webFonts/HelveticaNeueLTPro-Md/font.eot?#iefix') format('embedded-opentype'), url('webFonts/HelveticaNeueLTPro-Md/font.ttf') format('truetype');
+  src: url('fonts/HelveticaNeueLTPro-Md/font.woff2') format('woff2'),
+    url('fonts/HelveticaNeueLTPro-Md/font.woff') format('woff'),
+    url('fonts/HelveticaNeueLTPro-Md/font.eot?#iefix') format('embedded-opentype'),
+    url('fonts/HelveticaNeueLTPro-Md/font.ttf') format('truetype');
 }
 
+@font-face {
+  src: url('fonts/HelveticaNeueLTPro-Roman/font.eot');
+  font-family: 'HelveticaNeueLTPro-Roman';
+  src: url('fonts/HelveticaNeueLTPro-Roman/font.woff2') format('woff2'),
+    url('fonts/HelveticaNeueLTPro-Roman/font.woff') format('woff'),
+    url('fonts/HelveticaNeueLTPro-Roman/font.eot?#iefix') format('embedded-opentype'),
+    url('fonts/HelveticaNeueLTPro-Roman/font.ttf') format('truetype');
+}

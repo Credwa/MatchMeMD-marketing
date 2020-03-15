@@ -1,22 +1,13 @@
 import Backdrop from '@/components/ui/Backdrop';
+import Logo from '@/components/Logo';
+import Menu from 'antd/es/menu';
+import MenuData, { MenuDataItemInterface } from '@/components/navigation/ToolbarItems';
+import NavigationItem from '@/components/navigation/NavigationItem';
 import React from 'react';
 import styled from 'styled-components';
-import { navigate } from 'gatsby';
-import {
-  CloseOutlined,
-  MailOutlined,
-  UserOutlined,
-  LoginOutlined,
-  InfoCircleOutlined,
-  DollarOutlined,
-  PlayCircleOutlined,
-  BulbOutlined,
-  MessageOutlined,
-  AppstoreOutlined,
-  HomeOutlined
-} from '@ant-design/icons';
+import { CloseOutlined } from '@ant-design/icons';
 import { COLORS, VALUES } from '@/themes/variables';
-import Menu from 'antd/es/Menu';
+import { navigate } from 'gatsby';
 interface Props {
   show: boolean;
   closed: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
@@ -113,97 +104,22 @@ const SideDrawerContainer = styled.div`
 const ChildrenSection = styled.div`
   position: relative;
   top: 1vh;
+  width: 100vw;
+  padding: ${VALUES.PAGE_PADDING};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: ${VALUES.PAGE_PADDING};
 `;
 
-interface MenuDataItemInterface {
-  key: string;
-  children?: object;
-  link: string | undefined;
-  icon: any;
-}
-
-interface MenuDataInterface {
-  products: MenuDataItemInterface;
-  pricing: MenuDataItemInterface;
-  aboutUs: MenuDataItemInterface;
-  contact: MenuDataItemInterface;
-  login: MenuDataItemInterface;
-  signUp: MenuDataItemInterface;
-}
-
-const menuData: MenuDataInterface = {
-  home: {
-    key: 'Home',
-    link: '/',
-    icon: <HomeOutlined />
-  },
-  products: {
-    key: 'Products',
-    children: {
-      courses: {
-        key: 'Courses',
-        link: '/subscribe',
-        icon: <PlayCircleOutlined />
-      },
-      challenges: {
-        key: 'Challenges',
-        link: '/subscribe',
-        icon: <BulbOutlined />
-      },
-      discussionForum: {
-        key: 'Forum',
-        link: '/subscribe',
-        icon: <MessageOutlined />
-      },
-      mobileApp: {
-        key: 'Mobile app',
-        link: '/subscribe',
-        icon: <AppstoreOutlined />
-      }
-    },
-    link: undefined,
-    icon: <MailOutlined />
-  },
-  pricing: {
-    key: 'Pricing',
-    link: '/subscribe',
-    icon: <DollarOutlined />
-  },
-  aboutUs: {
-    key: 'About us',
-    link: '/subscribe',
-    icon: <InfoCircleOutlined />
-  },
-  contact: {
-    key: 'Contact',
-    link: '/subscribe',
-    icon: <MailOutlined />
-  },
-  login: {
-    key: 'Login',
-    link: '/subscribe',
-    icon: <LoginOutlined />
-  },
-  signUp: {
-    key: 'Sign up',
-    link: '/subscribe',
-    icon: <UserOutlined />
-  }
-};
-
 const SideDrawer: React.FC<Props> = ({ show, closed }) => {
-  const MenuItems = Object.values(menuData).map((data: MenuDataItemInterface, index: number) => {
+  const MenuItems = Object.values(MenuData).map((data: MenuDataItemInterface, index: number) => {
     if (data.children) {
       return (
         <SubMenu
           key={index}
           title={
             <span>
-              {data.icon}
+              {data.icon.render()}
               <span>{data.key}</span>
             </span>
           }
@@ -211,7 +127,7 @@ const SideDrawer: React.FC<Props> = ({ show, closed }) => {
           {Object.values(data.children).map((childrenData: MenuDataItemInterface, childIndex: number) => {
             return (
               <Menu.Item key={`${data.key}${childIndex}`} onClick={event => navigate(`${childrenData.link}`)}>
-                {childrenData.icon}
+                {childrenData.icon.render()}
                 {childrenData.key}
               </Menu.Item>
             );
@@ -221,7 +137,7 @@ const SideDrawer: React.FC<Props> = ({ show, closed }) => {
     } else {
       return (
         <Menu.Item key={index} onClick={event => navigate(`${data.link}`)}>
-          {data.icon}
+          {data.icon.render()}
           {data.key}
         </Menu.Item>
       );
@@ -232,17 +148,37 @@ const SideDrawer: React.FC<Props> = ({ show, closed }) => {
       <Backdrop show={show} onBackdropClicked={closed} />
       <SideDrawerContainer>
         <ChildrenSection>
-          <CloseOutlined
-            onClick={closed}
+          <div
             style={{
-              alignSelf: 'flex-end',
-              paddingRight: '.7rem',
-              marginBottom: '1rem',
-              fontSize: '30px',
-              color: COLORS.MMD_BACKGROUND,
-              cursor: 'pointer'
+              display: 'flex',
+              width: '100%',
+              justifyContent: 'space-between',
+              alignContent: 'center',
+              alignItems: 'center'
             }}
-          />
+          >
+            <NavigationItem
+              link="/"
+              style={{
+                alignSelf: 'flex-start'
+              }}
+            >
+              <Logo width={120} />
+            </NavigationItem>
+            <CloseOutlined
+              onClick={closed}
+              style={{
+                alignSelf: 'flex-end',
+                display: 'flex',
+                alignItems: 'center',
+                height: `${VALUES.TOOLBAR_HEIGHT}`,
+                fontSize: '30px',
+                color: COLORS.MMD_BACKGROUND,
+                cursor: 'pointer'
+              }}
+            />
+          </div>
+
           <StyledMenu theme="dark" mode="inline">
             {MenuItems}
           </StyledMenu>

@@ -11,10 +11,10 @@ const { Title, Paragraph } = Typography;
 
 const TestimonialsSection: React.FC = () => {
   const isLargeScreen = useMediaQuery({ minWidth: VALUES.PAGE_MAX_WIDTH });
-  const isMediumScreen = useMediaQuery({ minWidth: '768px' });
+  const isTabletScreen = useMediaQuery({ minWidth: VALUES.TABLET_MIN_WIDTH });
   let containerStyle = {};
   let visibleSlides = 2;
-  if (isMediumScreen) {
+  if (isTabletScreen) {
     visibleSlides = 3;
   }
   if (isLargeScreen) {
@@ -37,7 +37,7 @@ const TestimonialsSection: React.FC = () => {
 
   return (
     <div style={{ ...containerStyle }}>
-      <MDHero height={45} top={20}>
+      <MDHero height={45} top={isTabletScreen ? 30 : 15}>
         <Title level={3} style={{ color: `${COLORS.MMD_NEUTRAL_LIGHT}` }}>
           Customer Stories
         </Title>

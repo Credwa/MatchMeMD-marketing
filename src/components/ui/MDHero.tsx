@@ -19,7 +19,6 @@ const MMDHero = styled.section<HeroProps>`
   padding: 3rem 0;
   width: 100vw;
   overflow: hidden;
-  z-index: -100;
   &:after {
     width: 100vw;
     content: '';
@@ -29,12 +28,17 @@ const MMDHero = styled.section<HeroProps>`
     top: ${props => (props.top ? `${props.top}%` : '10%')};
     transform: ${props => (props.skewed ? 'skewY(-4deg)' : null)};
     background-color: ${COLORS.MMD_HERO_BACKGROUND};
-    z-index: ${VALUES.LAST_INDEX};
   }
+`;
+
+const MMDHeroContainer = styled.div`
+  position: relative;
+  z-index: 1;
 `;
 
 const ChildrenSection = styled.div`
   padding-top: 10rem;
+  position: relative;
   z-index: 10;
   margin: ${VALUES.PAGE_PADDING};
   @media (min-width: 768px) {
@@ -53,9 +57,11 @@ const ChildrenSection = styled.div`
 
 const MDHero: React.FC<HeroProps> = ({ height, top, skewed, children }) => {
   return (
-    <MMDHero skewed={skewed} height={height} top={top}>
-      <ChildrenSection>{children}</ChildrenSection>
-    </MMDHero>
+    <MMDHeroContainer>
+      <MMDHero skewed={skewed} height={height} top={top}>
+        <ChildrenSection>{children}</ChildrenSection>
+      </MMDHero>
+    </MMDHeroContainer>
   );
 };
 

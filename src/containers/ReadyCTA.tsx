@@ -20,6 +20,7 @@ const Section = styled.section`
   align-items: center;
   flex-wrap: none;
   width: 100vw;
+
   @media (min-width: ${VALUES.PAGE_MAX_WIDTH}px) {
     max-width: ${VALUES.PAGE_MAX_WIDTH}px;
     margin-left: auto;
@@ -29,29 +30,43 @@ const Section = styled.section`
 
 const CTAButtons = styled.div`
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
   align-content: center;
   margin: 2rem 0 0;
   flex-wrap: wrap;
-  @media (max-width: ${VALUES.SMALL_IPHONE_BREAKPOINT}px) {
-    flex-direction: column;
+
+  @media (max-width: ${VALUES.TABLET_MIN_WIDTH}px) {
+    flex-direction: row;
   }
 `;
 
 const ReadyCTA: React.FC<Props> = () => {
+  const isLargeScreen = useMediaQuery({ minWidth: VALUES.PAGE_MAX_WIDTH });
+
+  const isTabletScreen = useMediaQuery({ minWidth: VALUES.TABLET_MIN_WIDTH, maxWidth: VALUES.PAGE_MAX_WIDTH });
+
   const isExtraSmallScreen = useMediaQuery({ maxWidth: VALUES.SMALL_IPHONE_BREAKPOINT });
 
   let buttonStyle: any = {
     fontSize: '1rem',
-    width: '40vw',
+    width: '35vw',
+    marginTop: '1rem',
     maxWidth: '15rem',
     minWidth: '9rem'
   };
 
   if (isExtraSmallScreen) {
-    buttonStyle = { ...buttonStyle, marginTop: '1rem', width: '80vw' };
+    buttonStyle = { ...buttonStyle, marginTop: '1rem', width: '100vw', marginLeft: '1.5rem' };
+  }
+
+  if (isTabletScreen) {
+    buttonStyle = { ...buttonStyle, width: '20vw' };
+  }
+
+  if (isLargeScreen) {
+    buttonStyle = { ...buttonStyle, width: '30vw', maxWidth: '20rem' };
   }
   return (
     <Section>
@@ -61,7 +76,7 @@ const ReadyCTA: React.FC<Props> = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          width: '100%'
+          justifyContent: 'center'
         }}
       >
         <Fade right>
@@ -88,8 +103,9 @@ const ReadyCTA: React.FC<Props> = () => {
               type="primary"
               size="large"
               style={{
-                backgroundColor: `${COLORS.MMD_SECONDARY_5}`,
-                borderColor: `${COLORS.MMD_SECONDARY_4}`,
+                backgroundColor: `${COLORS.MMD_PRIMARY_6}`,
+                borderColor: `${COLORS.MMD_PRIMARY_5}`,
+                marginRight: '1rem',
                 ...buttonStyle
               }}
               onClick={event => navigate('/subscribe')}

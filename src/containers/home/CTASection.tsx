@@ -12,13 +12,13 @@ import { useMediaQuery } from 'react-responsive';
 const { Title, Paragraph } = Typography;
 const Section = styled.section`
   display: grid;
+  position: relative;
   margin-top: 3rem;
-
+  z-index: 5;
   @media (min-width: 768px) {
     margin-top: 5rem;
     grid-template-columns: 50% 50%;
     grid-template-rows: 30% 30% auto;
-    z-index: 1201 !important;
     grid-template-areas:
       'CTA img'
       'CTA img'
@@ -43,6 +43,10 @@ const CTAButtons = styled.div`
   @media (max-width: ${VALUES.SMALL_IPHONE_BREAKPOINT}px) {
     flex-direction: column;
   }
+
+  @media (max-width: ${VALUES.TABLET_MIN_WIDTH}px) {
+    flex-direction: row;
+  }
 `;
 
 const Img = styled.img`
@@ -61,21 +65,29 @@ const CTASection: React.FC = () => {
 
   const isLargeScreen = useMediaQuery({ minWidth: VALUES.PAGE_MAX_WIDTH });
 
+  const isTabletScreen = useMediaQuery({ minWidth: VALUES.TABLET_MIN_WIDTH, maxWidth: VALUES.PAGE_MAX_WIDTH });
+
   const isExtraSmallScreen = useMediaQuery({ maxWidth: VALUES.SMALL_IPHONE_BREAKPOINT });
 
-  let buttonStyle: any = {
+  let buttonStyle: { width: string; fontSize: string; maxWidth: string; minWidth: string; marginTop?: string } = {
     fontSize: '1rem',
     width: '40vw',
     maxWidth: '25rem',
     minWidth: '9rem'
   };
 
+  let containerStyle: { width?: string; margin?: string } = {};
+
   if (isExtraSmallScreen) {
     buttonStyle = { ...buttonStyle, marginTop: '1rem', width: '80vw' };
   }
 
-  let containerStyle = {};
+  if (isTabletScreen) {
+    buttonStyle = { ...buttonStyle, width: '20vw' };
+  }
+
   if (isLargeScreen) {
+    buttonStyle = { ...buttonStyle, width: '30vw', maxWidth: '20rem' };
     containerStyle = {
       width: '100vw',
       margin: 'auto'
@@ -113,8 +125,8 @@ const CTASection: React.FC = () => {
                 type="primary"
                 size="large"
                 style={{
-                  backgroundColor: `${COLORS.MMD_SECONDARY_5}`,
-                  borderColor: `${COLORS.MMD_SECONDARY_4}`,
+                  backgroundColor: `${COLORS.MMD_PRIMARY_6}`,
+                  borderColor: `${COLORS.MMD_PRIMARY_5}`,
                   ...buttonStyle
                 }}
                 onClick={event => navigate('/subscribe')}
