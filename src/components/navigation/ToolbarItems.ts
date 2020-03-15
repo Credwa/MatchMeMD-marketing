@@ -33,22 +33,22 @@ const menuData: MenuDataInterface = {
     children: {
       courses: {
         key: 'Courses',
-        link: '/subscribe',
+        link: '/subscribe/',
         icon: PlayCircleOutlined
       },
       challenges: {
         key: 'Challenges',
-        link: '/subscribe',
+        link: '/subscribe/',
         icon: BulbOutlined
       },
       discussionForum: {
         key: 'Forum',
-        link: '/subscribe',
+        link: '/subscribe/',
         icon: MessageOutlined
       },
       mobileApp: {
         key: 'Mobile app',
-        link: '/subscribe',
+        link: '/subscribe/',
         icon: AppstoreOutlined
       }
     },
@@ -57,27 +57,27 @@ const menuData: MenuDataInterface = {
   },
   pricing: {
     key: 'Pricing',
-    link: '/subscribe',
+    link: '/subscribe/',
     icon: DollarOutlined
   },
   aboutUs: {
     key: 'About us',
-    link: '/subscribe',
+    link: '/subscribe/',
     icon: InfoCircleOutlined
   },
   contact: {
     key: 'Contact',
-    link: '/subscribe',
+    link: '/subscribe/',
     icon: MailOutlined
   },
   login: {
     key: 'Log in',
-    link: '/subscribe',
+    link: '/subscribe/',
     icon: LoginOutlined
   },
   signUp: {
     key: 'Sign up',
-    link: '/subscribe',
+    link: '/subscribe/',
     icon: UserOutlined
   }
 };

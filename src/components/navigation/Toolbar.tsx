@@ -123,7 +123,7 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
   });
 
   const getStartedButton = isReallySmallScreen ? null : (
-    <NavigationItem link="/subscribe">
+    <NavigationItem link="/subscribe/">
       <MDButton
         type="primary"
         ghost
@@ -140,13 +140,13 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
       <div style={{ display: 'flex', width: '100%' }}>
         {MenuItems}
         <div style={{ display: 'flex', marginLeft: 'auto', justifyContent: 'space-between', width: '11rem' }}>
-          <NavigationItem link="/subscribe">
+          <NavigationItem link="/subscribe/">
             <span style={{ paddingRight: '.4rem', marginTop: '.1rem', color: `${COLORS.MMD_PRIMARY_7}` }}>
               {MenuData.login.icon.render()}
             </span>
             <span>{MenuData.login.key}</span>
           </NavigationItem>
-          <NavigationItem link="/subscribe">
+          <NavigationItem link="/subscribe/">
             <MDButton
               type="primary"
               ghost
@@ -177,7 +177,7 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
     );
 
   return (
-    <div style={{ width: '100vw', margin: 'auto', backgroundColor: `${COLORS.MMD_BACKGROUND}` }}>
+    <header style={{ width: '100vw', margin: 'auto', backgroundColor: `${COLORS.MMD_BACKGROUND}` }}>
       <Nav>
         <NavigationItem link="/">
           <Logo width={120} />
@@ -185,7 +185,7 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
 
         {ToolbarItems}
       </Nav>
-    </div>
+    </header>
   );
 };
 

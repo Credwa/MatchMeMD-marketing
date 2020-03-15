@@ -80,7 +80,7 @@ const VideoSection: React.FC = () => {
                 maxWidth: '15rem',
                 margin: '2rem 0 3rem 0'
               }}
-              onClick={event => navigate('/subscribe')}
+              onClick={event => navigate('/subscribe/')}
             >
               Learn more
             </MDButton>

@@ -108,7 +108,7 @@ const ReadyCTA: React.FC<Props> = () => {
                 marginRight: '1rem',
                 ...buttonStyle
               }}
-              onClick={event => navigate('/subscribe')}
+              onClick={event => navigate('/subscribe/')}
             >
               Start now
             </MDButton>
@@ -124,7 +124,7 @@ const ReadyCTA: React.FC<Props> = () => {
                 borderColor: `${COLORS.MMD_PRIMARY_8}`,
                 ...buttonStyle
               }}
-              onClick={event => navigate('/subscribe')}
+              onClick={event => navigate('/subscribe/')}
             >
               Contact us
             </MDButton>

@@ -15,7 +15,7 @@ const Section = styled.section`
   position: relative;
   margin-top: 3rem;
   z-index: 5;
-  @media (min-width: 768px) {
+  @media (min-width: ${VALUES.TABLET_MIN_WIDTH}px) {
     margin-top: 5rem;
     grid-template-columns: 50% 50%;
     grid-template-rows: 30% 30% auto;
@@ -129,7 +129,7 @@ const CTASection: React.FC = () => {
                   borderColor: `${COLORS.MMD_PRIMARY_5}`,
                   ...buttonStyle
                 }}
-                onClick={event => navigate('/subscribe')}
+                onClick={event => navigate('/subscribe/')}
               >
                 Start a free trial
               </MDButton>
@@ -144,7 +144,7 @@ const CTASection: React.FC = () => {
                   borderColor: `${COLORS.MMD_PRIMARY_8}`,
                   ...buttonStyle
                 }}
-                onClick={event => navigate('/subscribe')}
+                onClick={event => navigate('/subscribe/')}
               >
                 See pricing
               </MDButton>
