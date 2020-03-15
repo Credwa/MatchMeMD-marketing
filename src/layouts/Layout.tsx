@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Toolbar from '@/components/navigation/Toolbar';
 import { COLORS, VALUES } from '@/themes/variables';
 import { createGlobalStyle } from 'styled-components';
+import { useMediaQuery } from 'react-responsive';
+import './layout.css';
 
 const GlobalStyle = createGlobalStyle`
   body,html,* {
@@ -12,6 +14,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+
   body {
     background-color: ${COLORS.MMD_BACKGROUND} !important;
     overflow-x: hidden;
@@ -29,7 +34,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sideDrawerVisible, setSideDrawerVisible] = useState(false);
-
+  const isTabletScreen = useMediaQuery({ minWidth: VALUES.TABLET_MIN_WIDTH });
   const sideDrawerClosedHandler = () => {
     setSideDrawerVisible(false);
   };
@@ -42,7 +47,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <>
       <GlobalStyle />
       <Toolbar drawerToggleClicked={sideDrawerToggleHandler} />
-      <SideDrawer show={sideDrawerVisible} closed={sideDrawerClosedHandler} />
+      {isTabletScreen ? null : <SideDrawer show={sideDrawerVisible} closed={sideDrawerClosedHandler} />}
       <Main>{children}</Main>
       <Footer />
     </>

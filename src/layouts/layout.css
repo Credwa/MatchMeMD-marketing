@@ -1,0 +1,9 @@
+/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap'); */
+
+@import url('../../static/MyFontsWebfontsKit.css');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'IBM plex sans', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
+}
