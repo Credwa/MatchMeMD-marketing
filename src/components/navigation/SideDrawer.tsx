@@ -1,4 +1,5 @@
 import Backdrop from '@/components/ui/Backdrop';
+import bg from '../../assets/images/bg.svg';
 import Logo from '@/components/Logo';
 import Menu from 'antd/es/menu';
 import MenuData, { MenuDataItemInterface } from '@/components/navigation/ToolbarItems';
@@ -8,6 +9,7 @@ import styled from 'styled-components';
 import { CloseOutlined } from '@ant-design/icons';
 import { COLORS, VALUES } from '@/themes/variables';
 import { navigate } from 'gatsby';
+
 interface Props {
   show: boolean;
   closed: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
@@ -79,7 +81,7 @@ const SideDrawerContainer = styled.div`
     clip-path: ellipse(100% 60% at 80% 35%);
     position: absolute;
     content: '';
-    background-color: ${COLORS.MMD_HERO_BACKGROUND};
+    background-image: url(${bg}) !important;
   }
 
   @keyframes fadeInFirst {
@@ -96,7 +98,7 @@ const SideDrawerContainer = styled.div`
       background-color: rgba(0, 0, 0, 0);
     }
     to {
-      background-color: ${COLORS.MMD_HERO_BACKGROUND};
+      background-image: url(${bg}) !important;
     }
   }
 `;

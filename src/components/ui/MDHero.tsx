@@ -1,7 +1,7 @@
+import bg from '../../assets/images/bg.svg';
 import React from 'react';
 import styled from 'styled-components';
 import { COLORS, VALUES } from '@/themes/variables';
-
 interface HeroProps {
   skewed?: boolean;
   children: React.ReactNode;
@@ -18,6 +18,7 @@ const MMDHero = styled.section<HeroProps>`
   margin-top: ${props => (props.skewed ? '-8rem' : null)};
   padding: 3rem 0;
   width: 100vw;
+
   overflow: hidden;
   &:after {
     width: 100vw;
@@ -27,7 +28,7 @@ const MMDHero = styled.section<HeroProps>`
     position: absolute;
     top: ${props => (props.top ? `${props.top}%` : '10%')};
     transform: ${props => (props.skewed ? 'skewY(-4deg)' : null)};
-    background-color: ${COLORS.MMD_HERO_BACKGROUND};
+    background-image: url(${bg}) !important;
   }
 `;
 
@@ -41,7 +42,7 @@ const ChildrenSection = styled.div`
   position: relative;
   z-index: 10;
   margin: ${VALUES.PAGE_PADDING};
-  @media (min-width: 768px) {
+  @media (min-width: ${VALUES.TABLET_MIN_WIDTH}px) {
     padding-top: 15rem;
     padding-left: ${VALUES.PAGE_PADDING_SINGLE};
     padding-right: ${VALUES.PAGE_PADDING_SINGLE};

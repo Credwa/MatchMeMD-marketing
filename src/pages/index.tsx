@@ -15,6 +15,9 @@ const IndexPage: React.FC = () => (
     <HomeProductsSection />
     <HomeTestimonialsSection />
     <ReadyCTA />
+    <a href="https://loading.io/icon/" style={{ position: 'absolute', opacity: '0' }}>
+      The backrounds was provided by loading io
+    </a>
   </Layout>
 );
 

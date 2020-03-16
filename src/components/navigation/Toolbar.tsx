@@ -82,8 +82,8 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
   const MenuItems = Object.values(MenuData).map((data: MenuDataItemInterface, index: number) => {
     if (data.children) {
       return (
-        <SubMenuContainer>
-          <SubMenu key={index} style={navItemsPadding}>
+        <SubMenuContainer key={index}>
+          <SubMenu style={navItemsPadding}>
             <span style={{ paddingRight: '.3rem', marginTop: '.1rem', color: `${COLORS.MMD_PRIMARY_7}` }}>
               {data.icon.render()}
             </span>

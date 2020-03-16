@@ -38,7 +38,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const sideDrawerClosedHandler = () => {
     setSideDrawerVisible(false);
   };
-
   const sideDrawerToggleHandler = () => {
     setSideDrawerVisible(!sideDrawerVisible);
   };

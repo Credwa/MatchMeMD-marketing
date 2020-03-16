@@ -1,3 +1,4 @@
+import bg from '../../assets/images/bg.svg';
 import FooterNavItem from '@/components/navigation/FooterNavItem';
 import React from 'react';
 import SocialMedia from '@/components/ui/SocialMedia';
@@ -6,11 +7,10 @@ import Typography from 'antd/es/typography';
 import { COLORS, VALUES } from '@/themes/variables';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useMediaQuery } from 'react-responsive';
-
 const { Title, Paragraph } = Typography;
 
 const StyledFooterHero = styled.footer`
-  background: ${COLORS.MMD_HERO_BACKGROUND};
+  background-image: url(${bg}) !important;
   padding: ${VALUES.PAGE_PADDING};
   padding-top: 3rem;
   width: 100vw;
@@ -25,6 +25,7 @@ const FooterContainer = styled.div`
     grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 0.5fr 0.5fr 2fr;
     padding: ${VALUES.PAGE_PADDING};
+    grid-row-gap: 0.8rem;
     grid-template-areas:
       'Logo SocialMedia Products Company Help'
       'Tagline Tagline Products Company Help'
