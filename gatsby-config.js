@@ -72,5 +72,6 @@ module.exports = {
         siteSpeedSampleRate: 10,
         cookieDomain: 'example.com'
       }
+    }
   ]
 };
