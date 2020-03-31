@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Toolbar from '@/components/navigation/Toolbar';
 import { COLORS, VALUES } from '@/themes/variables';
 import { createGlobalStyle } from 'styled-components';
-import { useMediaQuery } from 'react-responsive';
 import './layout.css';
 
 const GlobalStyle = createGlobalStyle`
@@ -34,7 +33,6 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sideDrawerVisible, setSideDrawerVisible] = useState(false);
-  const isTabletScreen = useMediaQuery({ minWidth: VALUES.TABLET_MIN_WIDTH });
   const sideDrawerClosedHandler = () => {
     setSideDrawerVisible(false);
   };
@@ -46,7 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <>
       <GlobalStyle />
       <Toolbar drawerToggleClicked={sideDrawerToggleHandler} />
-      {isTabletScreen ? null : <SideDrawer show={sideDrawerVisible} closed={sideDrawerClosedHandler} />}
+      <SideDrawer show={sideDrawerVisible} closed={sideDrawerClosedHandler} />
       <Main>{children}</Main>
       <Footer />
     </>

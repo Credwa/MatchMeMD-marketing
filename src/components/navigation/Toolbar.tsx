@@ -6,7 +6,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { COLORS, VALUES } from '@/themes/variables';
 import { MenuOutlined } from '@ant-design/icons';
-import { useMediaQuery } from 'react-responsive';
 
 interface Props {
   drawerToggleClicked: any;
@@ -21,6 +20,28 @@ const Nav = styled.nav`
   max-width: ${VALUES.PAGE_MAX_WIDTH}px;
   margin-left: auto;
   margin-right: auto;
+  .isMobile {
+    @media (min-width: ${VALUES.TABLET_MIN_WIDTH}px) {
+      display: none !important;
+    }
+  }
+  .isTabletOrDesktop {
+    @media (max-width: ${VALUES.TABLET_MIN_WIDTH}px) {
+      display: none !important;
+    }
+  }
+  .isReallySmall {
+    @media (max-width: 325px) {
+      display: none !important;
+    }
+  }
+
+  .dynamic-padding {
+    padding: 0 0.7rem;
+    @media (min-width: ${VALUES.DESKTOP_MIN_WIDTH}px) {
+      padding: 0 2.3rem;
+    }
+  }
 `;
 
 const SubMenu = styled.ul`
@@ -70,20 +91,11 @@ const SubMenuItems = styled.div`
 `;
 
 const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
-  const isReallySmallScreen = useMediaQuery({ maxWidth: 325 });
-  const isTabletScreen = useMediaQuery({ minWidth: VALUES.TABLET_MIN_WIDTH, maxWidth: VALUES.TABLET_MAX_WIDTH });
-  const isDesktop = useMediaQuery({ minWidth: VALUES.DESKTOP_MIN_WIDTH });
-  const navItemsPadding = { padding: '0 .7rem' };
-
-  if (isDesktop) {
-    navItemsPadding.padding = '0 2.3rem';
-  }
-
   const MenuItems = Object.values(MenuData).map((data: MenuDataItemInterface, index: number) => {
     if (data.children) {
       return (
         <SubMenuContainer key={index}>
-          <SubMenu style={navItemsPadding}>
+          <SubMenu className="dynamic-padding">
             <span style={{ paddingRight: '.3rem', marginTop: '.1rem', color: `${COLORS.MMD_PRIMARY_7}` }}>
               {data.icon.render()}
             </span>
@@ -112,7 +124,7 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
       return [];
     } else {
       return (
-        <NavigationItem key={index} link={`${data.link}`} style={navItemsPadding}>
+        <NavigationItem key={index} link={`${data.link}`} className="dynamic-padding">
           <span style={{ paddingRight: '.3rem', marginTop: '.1rem', color: `${COLORS.MMD_PRIMARY_7}` }}>
             {data.icon.render()}
           </span>
@@ -122,8 +134,8 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
     }
   });
 
-  const getStartedButton = isReallySmallScreen ? null : (
-    <NavigationItem link="/subscribe/">
+  const getStartedButton = (
+    <NavigationItem link="/subscribe/" className="isReallySmall">
       <MDButton
         type="primary"
         ghost
@@ -135,9 +147,9 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
     </NavigationItem>
   );
 
-  const ToolbarItems =
-    isTabletScreen || isDesktop ? (
-      <div style={{ display: 'flex', width: '100%' }}>
+  const ToolbarItems = (
+    <>
+      <div style={{ display: 'flex', width: '100%' }} className="isTabletOrDesktop">
         {MenuItems}
         <div style={{ display: 'flex', marginLeft: 'auto', justifyContent: 'space-between', width: '11rem' }}>
           <NavigationItem link="/subscribe/">
@@ -158,8 +170,7 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
           </NavigationItem>
         </div>
       </div>
-    ) : (
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }} className="isMobile">
         {getStartedButton}
         <MDButton
           type="link"
@@ -174,7 +185,8 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
           onClick={drawerToggleClicked}
         ></MDButton>
       </div>
-    );
+    </>
+  );
 
   return (
     <header style={{ width: '100vw', margin: 'auto', backgroundColor: `${COLORS.MMD_BACKGROUND}` }}>

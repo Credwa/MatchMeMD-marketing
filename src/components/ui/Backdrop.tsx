@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { VALUES } from '@/themes/variables';
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
   show?: boolean;
@@ -7,6 +8,9 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 }
 
 const BackdropLayover = styled.div`
+  @media (min-width: ${VALUES.TABLET_MIN_WIDTH}px) {
+    display: none;
+  }
   width: 100%;
   height: 100%;
   position: fixed;

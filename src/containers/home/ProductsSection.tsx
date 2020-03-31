@@ -5,9 +5,16 @@ import styled from 'styled-components';
 import Typography from 'antd/es/typography';
 import { COLORS, VALUES } from '@/themes/variables';
 import { graphql, navigate, useStaticQuery } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
 
 const { Title, Paragraph } = Typography;
+
+const ProductsContainer = styled.div`
+  @media (min-width: ${VALUES.PAGE_MAX_WIDTH}px) {
+    width: 100vw;
+    margin: auto;
+    padding: ${VALUES.PAGE_PADDING}px;
+  }
+`;
 
 const Section = styled.section`
   margin-top: 5rem;
@@ -55,18 +62,8 @@ const ProductsSection: React.FC = () => {
       }
     }
   `);
-
-  const isLargeScreen = useMediaQuery({ minWidth: VALUES.PAGE_MAX_WIDTH });
-  let containerStyle = {};
-  if (isLargeScreen) {
-    containerStyle = {
-      width: '100vw',
-      margin: 'auto',
-      padding: `${VALUES.PAGE_PADDING}`
-    };
-  }
   return (
-    <div style={containerStyle}>
+    <ProductsContainer>
       <Section>
         <div style={{ marginTop: '3rem' }}>
           <Fade left>
@@ -114,7 +111,7 @@ const ProductsSection: React.FC = () => {
           <img
             src={data.discussionForum.publicURL}
             alt="doctor looks at patient electronic chart tablet"
-            style={{ maxHeight: '40rem', width: '100%' }}
+            style={{ maxHeight: '30rem', width: '100%' }}
           />
         </Fade>
       </Section>
@@ -184,10 +181,10 @@ const ProductsSection: React.FC = () => {
           </Title>
         </Fade>
         <Fade right>
-          <img src={data.devices.publicURL} alt="Devices" style={{ maxHeight: '20rem', width: '100%' }} />
+          <img src={data.devices.publicURL} alt="Devices" style={{ maxHeight: '18rem', width: '100%' }} />
         </Fade>
       </Section>
-    </div>
+    </ProductsContainer>
   );
 };
 

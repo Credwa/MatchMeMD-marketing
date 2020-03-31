@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Typography from 'antd/es/typography';
 import { COLORS, VALUES } from '@/themes/variables';
 import { navigate } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
 
 const { Title, Paragraph } = Typography;
 interface Props {}
@@ -26,6 +25,28 @@ const Section = styled.section`
     margin-left: auto;
     margin-right: auto;
   }
+
+  .button-dynamic {
+    font-size: 1rem;
+    width: 35vw;
+    margin-top: 1rem;
+    max-width: 15rem;
+    min-width: 9rem;
+    @media (min-width: ${VALUES.PAGE_MAX_WIDTH}px) {
+      width: 30vw;
+      max-width: 20rem;
+    }
+
+    @media (min-width: ${VALUES.TABLET_MIN_WIDTH}px) and (max-width: ${VALUES.PAGE_MAX_WIDTH}px) {
+      width: 20vw;
+    }
+
+    @media (max-width: ${VALUES.SMALL_PHONE_BREAKPOINT}px) {
+      margin-top: 1rem;
+      width: 100vw;
+      margin-left: 1.5rem;
+    }
+  }
 `;
 
 const CTAButtons = styled.div`
@@ -43,31 +64,6 @@ const CTAButtons = styled.div`
 `;
 
 const ReadyCTA: React.FC<Props> = () => {
-  const isLargeScreen = useMediaQuery({ minWidth: VALUES.PAGE_MAX_WIDTH });
-
-  const isTabletScreen = useMediaQuery({ minWidth: VALUES.TABLET_MIN_WIDTH, maxWidth: VALUES.PAGE_MAX_WIDTH });
-
-  const isExtraSmallScreen = useMediaQuery({ maxWidth: VALUES.SMALL_IPHONE_BREAKPOINT });
-
-  let buttonStyle: any = {
-    fontSize: '1rem',
-    width: '35vw',
-    marginTop: '1rem',
-    maxWidth: '15rem',
-    minWidth: '9rem'
-  };
-
-  if (isExtraSmallScreen) {
-    buttonStyle = { ...buttonStyle, marginTop: '1rem', width: '100vw', marginLeft: '1.5rem' };
-  }
-
-  if (isTabletScreen) {
-    buttonStyle = { ...buttonStyle, width: '20vw' };
-  }
-
-  if (isLargeScreen) {
-    buttonStyle = { ...buttonStyle, width: '30vw', maxWidth: '20rem' };
-  }
   return (
     <Section>
       <div
@@ -105,9 +101,9 @@ const ReadyCTA: React.FC<Props> = () => {
               style={{
                 backgroundColor: `${COLORS.MMD_PRIMARY_6}`,
                 borderColor: `${COLORS.MMD_PRIMARY_5}`,
-                marginRight: '1rem',
-                ...buttonStyle
+                marginRight: '1rem'
               }}
+              className="button-dynamic"
               onClick={event => navigate('/subscribe/')}
             >
               Start now
@@ -121,9 +117,9 @@ const ReadyCTA: React.FC<Props> = () => {
               size="large"
               style={{
                 color: `${COLORS.MMD_PRIMARY_8}`,
-                borderColor: `${COLORS.MMD_PRIMARY_8}`,
-                ...buttonStyle
+                borderColor: `${COLORS.MMD_PRIMARY_8}`
               }}
+              className="button-dynamic"
               onClick={event => navigate('/subscribe/')}
             >
               Contact us

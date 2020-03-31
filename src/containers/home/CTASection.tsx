@@ -7,9 +7,14 @@ import Typography from 'antd/es/typography';
 import { COLORS, VALUES } from '@/themes/variables';
 import { graphql, useStaticQuery } from 'gatsby';
 import { navigate } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
 
 const { Title, Paragraph } = Typography;
+const CTAContainer = styled.div`
+  @media (min-width: ${VALUES.PAGE_MAX_WIDTH}px) {
+    width: 100vw;
+    margin: auto;
+  }
+`;
 const Section = styled.section`
   display: grid;
   position: relative;
@@ -30,6 +35,26 @@ const Section = styled.section`
     margin-left: auto;
     margin-right: auto;
   }
+
+  .button-dynamic {
+    font-size: 1rem;
+    width: 40vw;
+    margin-top: 1rem;
+    max-width: 25rem;
+    min-width: 9rem;
+    @media (min-width: ${VALUES.PAGE_MAX_WIDTH}px) {
+      width: 30vw;
+      max-width: 20rem;
+    }
+    @media (min-width: ${VALUES.TABLET_MIN_WIDTH}px) and (max-width: ${VALUES.PAGE_MAX_WIDTH}px) {
+      width: 20vw;
+    }
+
+    @media (max-width: ${VALUES.SMALL_PHONE_BREAKPOINT}px) {
+      margin-top: 1rem;
+      width: 80vw;
+    }
+  }
 `;
 
 const CTAButtons = styled.div`
@@ -40,7 +65,7 @@ const CTAButtons = styled.div`
   align-content: center;
   margin: 5rem 0 7rem;
   flex-wrap: wrap;
-  @media (max-width: ${VALUES.SMALL_IPHONE_BREAKPOINT}px) {
+  @media (max-width: ${VALUES.SMALL_PHONE_BREAKPOINT}px) {
     flex-direction: column;
   }
 
@@ -63,39 +88,8 @@ const CTASection: React.FC = () => {
     }
   `);
 
-  const isLargeScreen = useMediaQuery({ minWidth: VALUES.PAGE_MAX_WIDTH });
-
-  const isTabletScreen = useMediaQuery({ minWidth: VALUES.TABLET_MIN_WIDTH, maxWidth: VALUES.PAGE_MAX_WIDTH });
-
-  const isExtraSmallScreen = useMediaQuery({ maxWidth: VALUES.SMALL_IPHONE_BREAKPOINT });
-
-  let buttonStyle: { width: string; fontSize: string; maxWidth: string; minWidth: string; marginTop?: string } = {
-    fontSize: '1rem',
-    width: '40vw',
-    maxWidth: '25rem',
-    minWidth: '9rem'
-  };
-
-  let containerStyle: { width?: string; margin?: string } = {};
-
-  if (isExtraSmallScreen) {
-    buttonStyle = { ...buttonStyle, marginTop: '1rem', width: '80vw' };
-  }
-
-  if (isTabletScreen) {
-    buttonStyle = { ...buttonStyle, width: '20vw' };
-  }
-
-  if (isLargeScreen) {
-    buttonStyle = { ...buttonStyle, width: '30vw', maxWidth: '20rem' };
-    containerStyle = {
-      width: '100vw',
-      margin: 'auto'
-    };
-  }
-
   return (
-    <div style={containerStyle}>
+    <CTAContainer>
       <Section>
         <Ellipse color="secondary" height={5} width={5} top={30} left={-2} />
         <Ellipse color="primary" height={7} width={7} top={26} right={0.1} />
@@ -126,9 +120,9 @@ const CTASection: React.FC = () => {
                 size="large"
                 style={{
                   backgroundColor: `${COLORS.MMD_PRIMARY_6}`,
-                  borderColor: `${COLORS.MMD_PRIMARY_5}`,
-                  ...buttonStyle
+                  borderColor: `${COLORS.MMD_PRIMARY_5}`
                 }}
+                className="button-dynamic"
                 onClick={event => navigate('/subscribe/')}
               >
                 Start a free trial
@@ -141,9 +135,9 @@ const CTASection: React.FC = () => {
                 size="large"
                 style={{
                   color: `${COLORS.MMD_PRIMARY_8}`,
-                  borderColor: `${COLORS.MMD_PRIMARY_8}`,
-                  ...buttonStyle
+                  borderColor: `${COLORS.MMD_PRIMARY_8}`
                 }}
+                className="button-dynamic"
                 onClick={event => navigate('/subscribe/')}
               >
                 See pricing
@@ -156,11 +150,11 @@ const CTASection: React.FC = () => {
           <Img
             src={data.landingImage.publicURL}
             alt="doctor looks at patient electronic chart tablet"
-            style={{ marginBottom: '1rem' }}
+            style={{ marginBottom: '1rem', maxHeight: '30rem' }}
           />
         </div>
       </Section>
-    </div>
+    </CTAContainer>
   );
 };
 

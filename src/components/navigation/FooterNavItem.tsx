@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 interface Props {
   children: React.ReactNode;
   link: string;
+  className?: string | undefined;
   style?: object;
 }
 
@@ -22,9 +23,9 @@ const NavItem = styled(Link)`
   }
 `;
 
-const FooterNavItem: React.FC<Props> = ({ link, children, style }) => {
+const FooterNavItem: React.FC<Props> = ({ link, children, style, className }) => {
   return (
-    <NavItem to={link} style={style}>
+    <NavItem to={link} style={style} className={className}>
       {children}
     </NavItem>
   );

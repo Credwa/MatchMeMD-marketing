@@ -57,6 +57,9 @@ const StyledMenu = styled(Menu)`
 `;
 
 const SideDrawerContainer = styled.div`
+  @media (min-width: ${VALUES.TABLET_MIN_WIDTH}px) {
+    display: none;
+  }
   height: 90vh;
   width: 100vw;
   top: 10%;

@@ -6,9 +6,15 @@ import styled from 'styled-components';
 import Typography from 'antd/es/typography';
 import { COLORS, VALUES } from '@/themes/variables';
 import { navigate } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
 
 const { Title, Paragraph } = Typography;
+
+const VideoContainer = styled.div`
+  @media (min-width: ${VALUES.PAGE_MAX_WIDTH}px) {
+    width: 100vw;
+    margin: auto;
+  }
+`;
 
 const Section = styled.section`
   display: grid;
@@ -38,16 +44,8 @@ const Section = styled.section`
 `;
 
 const VideoSection: React.FC = () => {
-  const isLargeScreen = useMediaQuery({ minWidth: VALUES.PAGE_MAX_WIDTH });
-  let containerStyle = {};
-  if (isLargeScreen) {
-    containerStyle = {
-      width: '100vw',
-      margin: 'auto'
-    };
-  }
   return (
-    <div style={containerStyle}>
+    <VideoContainer>
       <MDHero skewed height={60}>
         <Section>
           <div className="CTA">
@@ -88,7 +86,7 @@ const VideoSection: React.FC = () => {
 
           <div style={{ position: 'relative', paddingTop: '56.25%' }}>
             <ReactPlayer
-              url="https://streamable.com/moo"
+              url="https://www.youtube.com/watch?v=L3I4MTSxlYE"
               style={{ position: 'absolute', top: '0', left: '0' }}
               controls
               width="100%"
@@ -97,7 +95,7 @@ const VideoSection: React.FC = () => {
           </div>
         </Section>
       </MDHero>
-    </div>
+    </VideoContainer>
   );
 };
 

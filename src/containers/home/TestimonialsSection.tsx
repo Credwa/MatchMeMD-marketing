@@ -6,23 +6,25 @@ import { CarouselProvider, Slide, Slider } from 'pure-react-carousel';
 import { COLORS, VALUES } from '@/themes/variables';
 import { useMediaQuery } from 'react-responsive';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import styled from 'styled-components';
 
 const { Title, Paragraph } = Typography;
+const TestimonialsContainer = styled.div`
+  @media (min-width: ${VALUES.PAGE_MAX_WIDTH}px) {
+    width: 100vw;
+    margin: auto;
+  }
+`;
 
 const TestimonialsSection: React.FC = () => {
   const isLargeScreen = useMediaQuery({ minWidth: VALUES.PAGE_MAX_WIDTH });
   const isTabletScreen = useMediaQuery({ minWidth: VALUES.TABLET_MIN_WIDTH });
-  let containerStyle = {};
   let visibleSlides = 2;
   if (isTabletScreen) {
     visibleSlides = 3;
   }
   if (isLargeScreen) {
     visibleSlides = 4;
-    containerStyle = {
-      width: '100vw',
-      margin: 'auto'
-    };
   }
 
   let slides = [];
@@ -36,7 +38,7 @@ const TestimonialsSection: React.FC = () => {
   }
 
   return (
-    <div style={{ ...containerStyle }}>
+    <TestimonialsContainer>
       <MDHero height={45} top={isTabletScreen ? 30 : 15}>
         <Title level={3} style={{ color: `${COLORS.MMD_NEUTRAL_LIGHT}` }}>
           Customer Stories
@@ -65,7 +67,7 @@ const TestimonialsSection: React.FC = () => {
           <Slider>{slides}</Slider>
         </CarouselProvider>
       </MDHero>
-    </div>
+    </TestimonialsContainer>
   );
 };
 

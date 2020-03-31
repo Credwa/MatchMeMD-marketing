@@ -9,6 +9,7 @@ interface Props {
   isLink?: boolean;
   style?: object;
   toggleDrawer?: any;
+  className?: string | undefined;
 }
 
 const NavBarItem = styled(Link)`
@@ -22,9 +23,9 @@ const NavBarItem = styled(Link)`
   }
 `;
 
-const NavigationItem: React.FC<Props> = ({ link, children, style, toggleDrawer }) => {
+const NavigationItem: React.FC<Props> = ({ link, children, style, toggleDrawer, className }) => {
   return (
-    <NavBarItem to={link} style={style} onClick={toggleDrawer}>
+    <NavBarItem to={link} style={style} onClick={toggleDrawer} className={className}>
       {children}
     </NavBarItem>
   );
