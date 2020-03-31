@@ -7,6 +7,7 @@ interface HeroProps {
   children: React.ReactNode;
   height: number;
   top?: number;
+  className?: string | undefined;
 }
 
 const MMDHero = styled.section<HeroProps>`
@@ -56,9 +57,9 @@ const ChildrenSection = styled.div`
   }
 `;
 
-const MDHero: React.FC<HeroProps> = ({ height, top, skewed, children }) => {
+const MDHero: React.FC<HeroProps> = ({ height, top, skewed, children, className }) => {
   return (
-    <MMDHeroContainer>
+    <MMDHeroContainer className={className}>
       <MMDHero skewed={skewed} height={height} top={top}>
         <ChildrenSection>{children}</ChildrenSection>
       </MMDHero>

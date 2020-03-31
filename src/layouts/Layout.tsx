@@ -13,9 +13,6 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
-
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
-
   body {
     background-color: ${COLORS.MMD_BACKGROUND} !important;
     overflow-x: hidden;
