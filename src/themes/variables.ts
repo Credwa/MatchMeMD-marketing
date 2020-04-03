@@ -95,7 +95,7 @@ export const VALUES: UiValues = {
     SIZE: '1rem',
     LINE_HEIGHT: '1.5rem'
   },
-  PAGE_MAX_WIDTH: 1440,
+  PAGE_MAX_WIDTH: 1090,
   TABLET_MIN_WIDTH: 768,
   DESKTOP_MIN_WIDTH: 992,
   TABLET_MAX_WIDTH: 991,

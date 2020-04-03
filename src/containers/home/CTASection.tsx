@@ -39,12 +39,12 @@ const Section = styled.section`
   .button-dynamic {
     font-size: 1rem;
     width: 40vw;
+    margin-right: 1rem;
     margin-top: 1rem;
     max-width: 25rem;
     min-width: 9rem;
     @media (min-width: ${VALUES.PAGE_MAX_WIDTH}px) {
-      width: 30vw;
-      max-width: 20rem;
+      width: 10vw;
     }
     @media (min-width: ${VALUES.TABLET_MIN_WIDTH}px) and (max-width: ${VALUES.PAGE_MAX_WIDTH}px) {
       width: 20vw;
@@ -60,7 +60,7 @@ const Section = styled.section`
 const CTAButtons = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   align-content: center;
   margin: 5rem 0 7rem;

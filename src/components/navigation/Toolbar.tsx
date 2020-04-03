@@ -134,19 +134,6 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
     }
   });
 
-  const getStartedButton = (
-    <NavigationItem link="/subscribe/" className="isReallySmall">
-      <MDButton
-        type="primary"
-        ghost
-        size="middle"
-        style={{ color: `${COLORS.MMD_PRIMARY_8}`, borderColor: `${COLORS.MMD_PRIMARY_8}` }}
-      >
-        Get started
-      </MDButton>
-    </NavigationItem>
-  );
-
   const ToolbarItems = (
     <>
       <div style={{ display: 'flex', width: '100%' }} className="isTabletOrDesktop">
@@ -171,16 +158,12 @@ const Toolbar: React.FC<Props> = ({ drawerToggleClicked }) => {
         </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }} className="isMobile">
-        {getStartedButton}
         <MDButton
           type="link"
-          icon={<MenuOutlined style={{ fontSize: '24px' }} />}
+          icon={<MenuOutlined style={{ fontSize: '1.7rem', paddingTop: '0.25rem' }} />}
           style={{
-            marginLeft: '1rem',
             height: `${VALUES.TOOLBAR_HEIGHT}`,
-            color: `${COLORS.MMD_PRIMARY_8}`,
-            display: 'flex',
-            alignItems: 'center'
+            color: `${COLORS.MMD_PRIMARY_8}`
           }}
           onClick={drawerToggleClicked}
         ></MDButton>

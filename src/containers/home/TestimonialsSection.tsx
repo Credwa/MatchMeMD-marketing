@@ -58,7 +58,7 @@ const TestimonialsSection: React.FC = () => {
 
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={190}
+          naturalSlideHeight={100}
           totalSlides={slides.length}
           visibleSlides={4}
           isPlaying={true}

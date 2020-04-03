@@ -46,7 +46,7 @@ const Section = styled.section`
 const VideoSection: React.FC = () => {
   return (
     <VideoContainer>
-      <MDHero skewed height={60}>
+      <MDHero skewed height={40}>
         <Section>
           <div className="CTA">
             <Title level={3} style={{ color: `${COLORS.MMD_NEUTRAL_LIGHT}` }}>
